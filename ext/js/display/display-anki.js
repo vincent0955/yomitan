@@ -407,6 +407,11 @@ export class DisplayAnki {
         const behavior = this._duplicateBehavior;
         if (behavior === 'prevent') {
             button.disabled = true;
+            // Move the tooltip to the container
+            const container = button.closest('.action-button-container');
+            if (container) {
+                /** @type {HTMLElement} */ (container).title = 'Adding duplicate note is disabled';
+            }
             return;
         }
 
